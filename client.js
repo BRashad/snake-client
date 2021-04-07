@@ -15,6 +15,11 @@ const connect = function() {
 
   conn.on('connect', () => {
     conn.write("Name: RAS" );
+
+    setInterval(() => conn.write("Move: left" ),500);
+    setInterval(() => conn.write("Move: down" ),500);
+    setInterval(() => conn.write("Move: right" ),500);
+
   });
 
   conn.setEncoding('utf8');
