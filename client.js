@@ -5,14 +5,16 @@ const connect = function() {
     host: '10.0.0.64',
     port: 50541
   });
-  // interpret incoming data as text
-
   conn.on('connect', function() {
     console.log("client is conected to the server");
   });
 
   conn.on('data', function(data) {
     console.log("Server says:", data);
+  });
+
+  conn.on('connect', () => {
+    conn.write("Name: RAS" );
   });
 
   conn.setEncoding('utf8');
