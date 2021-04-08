@@ -1,8 +1,10 @@
 const net = require('net');
+const { IP, PORT } = require('./constants');
+
 const connect = function() {
   const conn = net.createConnection({
-    host: '10.0.0.64',
-    port: 50541
+    host: IP,
+    port: PORT
   });
   conn.on('connect', function() {
     console.log("client is conected to the server");
@@ -12,10 +14,6 @@ const connect = function() {
   conn.on('data', function(data) {
     console.log("Server says:", data);
   });
-
-  // conn.on('connect', () => {
-  //   conn.write("Name: RAS");
-  // });
   
   conn.setEncoding('utf8');
 
